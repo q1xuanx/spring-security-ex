@@ -1,5 +1,6 @@
 package com.example.security_ex.model;
 
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -9,11 +10,10 @@ import java.util.Collection;
 import java.util.Collections;
 
 
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class UserPrinciple implements UserDetails {
 
-    private final Users user;
-
+    private Users user;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
