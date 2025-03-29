@@ -1,4 +1,4 @@
-package com.example.security_ex.model;
+package com.example.security_ex.auth.model;
 
 
 import jakarta.persistence.Entity;

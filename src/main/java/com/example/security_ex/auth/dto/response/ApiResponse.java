@@ -1,4 +1,4 @@
-package com.example.security_ex.dto.response;
+package com.example.security_ex.auth.dto.response;
 
 
 import lombok.AllArgsConstructor;
