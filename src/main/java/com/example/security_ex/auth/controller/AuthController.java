@@ -8,6 +8,8 @@ import com.example.security_ex.auth.service.UserDetailService;
 import com.example.security_ex.auth.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
+@EnableMethodSecurity
 public class AuthController {
 
     private final UserService userService;
@@ -38,6 +41,7 @@ public class AuthController {
     }
 
     @GetMapping("/users")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<ApiResponse<List<Users>>> getAllUsers() {
         ApiResponse<List<Users>> listUser = userService.getAllUser("/users");
         if (!listUser.getData().isEmpty()) {
